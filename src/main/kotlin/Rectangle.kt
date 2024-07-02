@@ -1,13 +1,27 @@
-open class Rectangle(private val point1: Point, private val point2: Point) {
+import kotlin.math.abs
+
+open class Rectangle(private var point1: Point, private var point2: Point) {
 
     fun getPoints(): List<Point> {
         return listOf(point1, point2)
     }
 
     fun getArea(): Double {
-
+        val point1Coordinates = point1.getCoordinates()
+        val point2Coordinates = point2.getCoordinates()
+        val width = abs(point1Coordinates.first - point2Coordinates.first)
+        val height = abs(point1Coordinates.second - point2Coordinates.second)
+        return width * height
+    }
+    fun move(deltaX: Double, deltaY: Double){
+        point1.move(deltaX,deltaY)
+        point2.move(deltaX,deltaY)
     }
 }
 class Square(private val point1: Point, private val point2: Point) : Rectangle(point1, point2) {
-
+    init {
+        val point1Coordinates = point1.getCoordinates()
+        val point2Coordinates = point1.getCoordinates()
+        require(point1Coordinates.first - point2Coordinates.first == point1Coordinates.second - point2Coordinates.second)
+    }
 }
