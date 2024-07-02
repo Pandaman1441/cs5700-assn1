@@ -10,10 +10,8 @@ open class Rectangle(private val point1: Point, private val point2: Point) {
     }
 
     fun getArea(): Double {
-        val point1Coordinates = point1.getCoordinates()
-        val point2Coordinates = point2.getCoordinates()
-        val width = abs(point1Coordinates.first - point2Coordinates.first)
-        val height = abs(point1Coordinates.second - point2Coordinates.second)
+        val width = abs(point1.getCoordinates().first - point2.getCoordinates().first)
+        val height = abs(point1.getCoordinates().second - point2.getCoordinates().second)
         return width * height
     }
     fun move(deltaX: Double, deltaY: Double){
