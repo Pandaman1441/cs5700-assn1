@@ -19,7 +19,7 @@ open class Rectangle(private val point1: Point, private val point2: Point) {
         point2.move(deltaX,deltaY)
     }
 }
-class Square(private val point1: Point, private val point2: Point) : Rectangle(point1, point2) {
+class Square(point1: Point, point2: Point) : Rectangle(point1, point2) {
     init {
         val point1Coordinates = point1.getCoordinates()
         val point2Coordinates = point1.getCoordinates()
