@@ -1,7 +1,10 @@
 import kotlin.math.abs
 
-open class Rectangle(private var point1: Point, private var point2: Point) {
-
+open class Rectangle(private val point1: Point, private val point2: Point) {
+    init{
+        require(abs(point1.getCoordinates().first - point2.getCoordinates().first) != 0.0)
+        require(abs(point1.getCoordinates().second - point2.getCoordinates().second) != 0.0)
+    }
     fun getPoints(): List<Point> {
         return listOf(point1, point2)
     }
