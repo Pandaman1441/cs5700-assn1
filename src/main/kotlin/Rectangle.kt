@@ -22,7 +22,10 @@ open class Rectangle(private val point1: Point, private val point2: Point) {
 class Square(point1: Point, point2: Point) : Rectangle(point1, point2) {
     init {
         val point1Coordinates = point1.getCoordinates()
-        val point2Coordinates = point1.getCoordinates()
-        require(point1Coordinates.first - point2Coordinates.first == point1Coordinates.second - point2Coordinates.second)
+        val point2Coordinates = point2.getCoordinates()
+        require(abs(point1Coordinates.first - point2Coordinates.first) == abs(point1Coordinates.second - point2Coordinates.second)){
+            "All sides must be equal in length to be a square"
+
+        }
     }
 }

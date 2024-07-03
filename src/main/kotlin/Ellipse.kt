@@ -1,7 +1,9 @@
 open class Ellipse(private val center: Point, private val radius1: Double, private val radius2: Double) {
 
     init {
-        require((Math.PI * radius1 * radius2) != 0.0)
+        require((Math.PI * radius1 * radius2) != 0.0){
+            "Both radii must be greater than zero."
+        }
     }
     fun getCenter() : Point{
         return center
